@@ -1,21 +1,21 @@
-export const THEME_CONFIG: App.Locals['config'] = {
+export const THEME_CONFIG: App.Locals["config"] = {
   /** blog title */
-  title: "活版印字",
+  title: "刷题记录",
   /** your name */
-  author: "Typography",
+  author: "mrxirzzz",
   /** website description */
-  desc: "Rediscory the beauty of typography",
+  desc: "刷题记录, LeetCode, AcWing, NowCoder",
   /** your deployed domain */
-  website: "https://astro-theme-typography.vercel.app/",
+  website: "https://coding.mrxir.cloud",
   /** your locale */
-  locale: "en-us",
+  locale: "zh-cn",
   /** theme style */
   themeStyle: "light",
   /** your socials */
   socials: [
     {
       name: "github",
-      href: "https://github.com/moeyua/astro-theme-typography",
+      href: "https://github.com/xirzc/",
     },
     {
       name: "rss",
@@ -23,16 +23,12 @@ export const THEME_CONFIG: App.Locals['config'] = {
     },
     {
       name: "twitter",
-      href: "https://github.com/moeyua/astro-theme-typography",
+      href: "https://twitter.com/mrxirsr",
     },
-    {
-      name: "mastodon",
-      href: "https://github.com/moeyua/astro-theme-typography",
-    }
   ],
   /** your header info */
   header: {
-    twitter: "@moeyua13",
+    twitter: "@mrxirsr",
   },
   /** your navigation links */
   navs: [
@@ -46,16 +42,17 @@ export const THEME_CONFIG: App.Locals['config'] = {
     },
     {
       name: "Categories",
-      href: "/categories"
+      href: "/categories",
     },
-    {
-      name: "About",
-      href: "/about",
-    },
+    // {
+    //   name: "About",
+    //   href: "/about",
+    // },
   ],
   /** your category name mapping, which the `path` will be shown in the url */
   category_map: [
-    {name: "胡适", path: "hu-shi"},
-  ]
-}
-
+    { name: "LeetCode", path: "leetcode" },
+    { name: "AcWing", path: "acwing" },
+    { name: "NowCoder", path: "nowcoder" },
+  ],
+};
