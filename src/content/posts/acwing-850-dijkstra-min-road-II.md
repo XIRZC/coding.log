@@ -7,7 +7,7 @@ description: "Dijkstra求最短II"
 
 ## Dijkstra 求最短路 II
 
-稀疏图使用邻接标：`N ~= M`
+稀疏图使用邻接表：`N ~= M`
 
 时间：`O(NLogM)` 空间： `O(M)`
 
