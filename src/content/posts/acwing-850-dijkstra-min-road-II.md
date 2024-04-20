@@ -1,8 +1,8 @@
 ---
-title: "AcWing 850 - Dijkstra求最短II"
+title: "AcWing 850 - Dijkstra求最短路II"
 pubDate: "2024-4-11"
 categories: ["AcWing"]
-description: "Dijkstra求最短II"
+description: "Dijkstra求最短路II"
 ---
 
 ## Dijkstra 求最短路 II

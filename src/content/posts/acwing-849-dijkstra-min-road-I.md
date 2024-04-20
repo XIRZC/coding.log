@@ -1,8 +1,8 @@
 ---
-title: "AcWing 849 - Dijkstra求最短I"
+title: "AcWing 849 - Dijkstra求最短路I"
 pubDate: "2024-4-11"
 categories: ["AcWing"]
-description: "Dijkstra求最短I"
+description: "Dijkstra求最短路I"
 ---
 
 ## Dijkstra 求最短路 I
