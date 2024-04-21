@@ -54,5 +54,6 @@ export const THEME_CONFIG: App.Locals["config"] = {
     { name: "LeetCode", path: "leetcode" },
     { name: "AcWing", path: "acwing" },
     { name: "NowCoder", path: "nowcoder" },
+    { name: "Interview", path: "interview" },
   ],
 };
