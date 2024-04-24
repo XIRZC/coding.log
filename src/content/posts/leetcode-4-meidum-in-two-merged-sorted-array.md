@@ -54,7 +54,7 @@ public:
 };
 ```
 
-## 寻找两个正序数组的中位数 - 朴素做法 - 二分搜索
+## 寻找两个正序数组的中位数 - 朴素做法 - 二分搜索 - 迭代写法
 
 时间：`O(log(N + M))` 空间： `O(1)`
 
@@ -85,6 +85,35 @@ public:
         int n = nums1.size(), m = nums2.size(), z = m + n;
         if (z % 2) return binsearch(nums1, nums2, z / 2 + 1);
         else return (binsearch(nums1, nums2, z / 2) + binsearch(nums1, nums2, z / 2 + 1)) / 2.0;
+    }
+};
+```
+
+## 寻找两个正序数组的中位数 - 朴素做法 - 二分搜索 - 递归写法
+
+时间：`O(log(N + M))` 空间： `O(N + M)`
+
+```c++
+class Solution {
+public:
+
+    int n, m;
+
+    int binsearch(vector<int>& nums1, vector<int>& nums2, int l1, int l2, int k) {
+        if (l1 == n) return nums2[l2 + k - 1];
+        if (l2 == m) return nums1[l1 + k - 1];
+        if (k == 1) return min(nums1[l1], nums2[l2]);
+        int t = k / 2 - 1;
+        int nl1 = min(l1 + t, n - 1), nl2 = min(l2 + t, m - 1);
+        if (nums1[nl1] <= nums2[nl2]) return binsearch(nums1, nums2, nl1 + 1, l2, k - (nl1 - l1 + 1));
+        else return binsearch(nums1, nums2, l1, nl2 + 1, k - (nl2 - l2 + 1));
+    }
+
+    double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
+        n = nums1.size(), m = nums2.size();
+        int z = m + n;
+        if (z % 2) return binsearch(nums1, nums2, 0, 0, z / 2 + 1);
+        else return (binsearch(nums1, nums2, 0, 0, z / 2) + binsearch(nums1, nums2, 0, 0, z / 2 + 1)) / 2.0;
     }
 };
 ```

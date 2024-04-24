@@ -116,14 +116,14 @@ void merge_sort(int a[], int l, int r) {
 
 void quick_sort(int a[] ,int l, int r) {
     if (l >= r)  return;
-    int i = l - 1, j = r + 1, p = l + r >> 1;
+    int i = l - 1, j = r + 1, p = a[l + r >> 1];
     while (i < j) {
-        while (a[++i] < a[p]);
-        while (a[--j] > a[p]);
-        swap(a[i], a[j]);
+        while (a[++i] < p);
+        while (a[--j] > p);
+        if (i < j) swap(a[i], a[j]);
     }
-    quick_sort(a, l, p);
-    quick_sort(a, p + 1, r);
+    quick_sort(a, l, j);
+    quick_sort(a, j + 1, r);
 }
 
 int main() {
