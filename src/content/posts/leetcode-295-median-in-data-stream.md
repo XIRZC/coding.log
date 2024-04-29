@@ -54,4 +54,42 @@ public:
  */
 ```
 
-> [https://leetcode.cn/problems/partition-labels](https://leetcode.cn/problems/partition-labels)
+## 两个堆维护 - 一个小顶堆，一个大顶堆
+
+```c++
+class MedianFinder {
+public:
+
+    priority_queue<int> maxheap;
+    priority_queue<int, vector<int>, greater<int>> minheap;
+
+    MedianFinder() {}
+
+    void addNum(int num) {
+        if (maxheap.size() == minheap.size()) {
+            maxheap.push(num);
+            minheap.push(maxheap.top());
+            maxheap.pop();
+        }
+        else {
+            minheap.push(num);
+            maxheap.push(minheap.top());
+            minheap.pop();
+        }
+    }
+
+    double findMedian() {
+        if (maxheap.size() == minheap.size()) return (double) (maxheap.top() + minheap.top()) / 2;
+        else return (double) minheap.top();
+    }
+};
+
+/**
+ * Your MedianFinder object will be instantiated and called as such:
+ * MedianFinder* obj = new MedianFinder();
+ * obj->addNum(num);
+ * double param_2 = obj->findMedian();
+ */
+```
+
+> [https://leetcode.cn/problems/find-median-from-data-stream](https://leetcode.cn/problems/find-median-from-data-stream)
