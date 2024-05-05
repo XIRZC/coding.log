@@ -9,42 +9,72 @@ description: "给定一个整数数组 nums 和一个整数目标值 target，�
 
 时间：`O(N^2)` 空间： `O(1)`
 
-```java
+```c++
 class Solution {
-    public int[] twoSum(int[] nums, int target) {
-        int[] res = new int[2];
-        for(int i = 0; i < nums.length; i++) {
-            for(int j = i + 1; j < nums.length; j++) {
-                if(nums[i] + nums[j] == target) {
-                    return new int[]{i, j};
-                }
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        int n = nums.size();
+        vector<int> res;
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (nums[i] + nums[j] == target) res.push_back(i), res.push_back(j);
             }
         }
-        return new int[0];
+        return res;
     }
-}
+};
 ```
 
 ## 哈希表
 
 时间：`O(N)` 空间： `O(N)`
 
-```java
+```c++
 class Solution {
-    public int[] twoSum(int[] nums, int target) {
-        int len = nums.length;
-        HashMap<Integer, Integer> map = new HashMap<>(len);
-        for(int i = 0; i < len; i++) {
-            if (!map.containsKey(target - nums[i])) {
-                map.put(nums[i], i);
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        int n = nums.size();
+        unordered_map<int, int> map;
+        vector<int> res;
+        for (int i = 0; i < n; i++) {
+            if (map.count(target - nums[i])) {
+                res.push_back(i);
+                res.push_back(map[target-nums[i]]);
+                break;
             }
-            else {
-                return new int[] {i, map.get(target - nums[i])};
-            }
+            map[nums[i]] = i;
         }
-        return new int[0];
+        return res;
     }
-}
+};
+```
+
+## 双指针
+
+时间：`O(NLogN)` 空间：`O(N)`
+
+```c++
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        int n = nums.size();
+        vector<int> res;
+        vector<pair<int, int>> numspair;
+        for (int i = 0; i < n; i++) numspair.push_back({nums[i], i});
+        sort(numspair.begin(), numspair.end());
+        int i = 0, j = n - 1;
+        while (i < j) {
+            if (numspair[i].first + numspair[j].first == target) {
+                res.push_back(numspair[i].second);
+                res.push_back(numspair[j].second);
+                break;
+            }
+            else if (numspair[i].first + numspair[j].first > target) j--;
+            else i++;
+        }
+        return res;
+    }
+};
 ```
 
 > [https://leetcode.cn/problems/two-sum/](https://leetcode.cn/problems/two-sum/)
